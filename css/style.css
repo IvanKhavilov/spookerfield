@@ -24,6 +24,9 @@ body {
   flex-direction: column;
   min-height: 100vh;
   background-image: url('../images/main-bg.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .container {
   max-width: 1082px;
@@ -50,9 +53,14 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 11px 10px 50px;
+  padding: 11px 0px 50px;
+}
+.menu__item {
+  flex: 1;
+  text-align: center;
 }
 .menu__link {
+  display: inline-block;
   font-size: 48px;
   font-weight: 400;
 }
@@ -85,7 +93,7 @@ body {
   position: relative;
   max-width: 590px;
   width: 100%;
-  margin: 0 auto;
+  margin: 0 auto 70px;
 }
 .angel__img {
   width: 100%;
