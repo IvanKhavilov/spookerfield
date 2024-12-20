@@ -11,6 +11,14 @@ a {
   text-decoration: none;
   color: inherit;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+}
 body {
   color: #fff;
   height: 100%;
@@ -18,7 +26,6 @@ body {
   font-size: 32px;
   font-weight: 400;
   font-style: normal;
-  overflow-x: hidden;
 }
 .page {
   display: flex;
@@ -37,7 +44,6 @@ body {
 }
 .title {
   font-size: 64px;
-  letter-spacing: 0;
   text-align: center;
 }
 .mb-80 {
@@ -121,49 +127,42 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  max-width: 100%;
+  width: 100%;
 }
 .button__prev,
 .button__next {
-  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  padding: 0;
   width: 65px;
   height: 65px;
   transition: transform 0.5s;
   z-index: 10;
+  cursor: pointer;
+}
+.button__prev {
+  left: -115px;
+}
+.button__next {
+  transform: translateY(-50%) rotateY(180deg);
+  right: -115px;
 }
 .button__icon {
   width: 100%;
   height: auto;
   object-fit: cover;
 }
-.button__prev:hover {
-  transform: translateX(-55px) scale(1.15);
-}
-.button__prev {
-  transform: translateX(-55px);
-}
-.button__next {
-  transform: translateX(55px) rotateY(180deg);
-}
-.button__next:hover {
-  transform: translateX(55px) rotateY(180deg) scale(1.15);
-}
 .slider__inner {
   position: relative;
-  width: 55.45%;
-  padding: 0 0 55.45% 0;
+  max-width: 600px;
+  width: 100%;
 }
 .slider__item {
-  display: none;
-}
-.slider__item.active {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
+  margin: 0 7px;
 }
 .gallery-box {
   display: grid;
@@ -214,8 +213,11 @@ body {
   .angel__img {
     transform: translateX(0);
   }
+  .slider__inner {
+    max-width: 500px;
+  }
 }
-@media (max-width: 768px) {
+@media (max-width: 769px) {
   .menu__list {
     flex-wrap: wrap;
     gap: 30px;
@@ -242,19 +244,18 @@ body {
     height: 40px;
   }
   .button__prev {
-    transform: translateX(-15px);
+    left: -65px;
   }
   .button__next {
-    transform: translateX(15px) rotateY(180deg);
-  }
-  .button__prev:hover {
-    transform: translateX(-15px) scale(1.15);
-  }
-  .button__next:hover {
-    transform: translateX(15px) rotateY(180deg) scale(1.15);
+    right: -65px;
   }
 }
-@media (max-width: 425px) {
+@media (max-width: 645px) {
+  .slider__inner {
+    max-width: 225px;
+  }
+}
+@media (max-width: 426px) {
   body {
     position: relative;
   }
@@ -327,5 +328,8 @@ body {
   .main__box-img {
     flex-basis: 100%;
     margin-bottom: 25px;
+  }
+  .slider__inner {
+    max-width: 182px;
   }
 }
