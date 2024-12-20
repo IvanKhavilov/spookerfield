@@ -1,35 +1,50 @@
-const btnNext = document.querySelector('.button__next')
-const btnPrev = document.querySelector('.button__prev')
-const slides = document.querySelectorAll('.slider__item')
+document.addEventListener('DOMContentLoaded', () => {
+  const burgerMenu = document.getElementById('burgerMenu')
+  const navMenu = document.getElementById('navMenu')
+  burgerMenu.addEventListener('click', () => {
+    burgerMenu.classList.toggle('active')
+    navMenu.classList.toggle('active')
+  })
+})
 
-let index = 0
+document.addEventListener('DOMContentLoaded', () => {
+  const btnNext = document.getElementById('button__next')
+  const btnPrev = document.getElementById('button__prev')
+  const slides = document.querySelectorAll('.slider__item')
 
-const activeSlide = (n) => {
-  for (slide of slides) {
-    slide.classList.remove('active')
-  }
-  slides[n].classList.add('active')
-}
-const prepareCurrentSlide = (ind) => {
-  activeSlide(index)
-}
-const nextSlide = () => {
-  if (index == slides.length - 1) {
-    index = 0
-    prepareCurrentSlide()
+  if (btnNext && btnPrev && slides.length > 0) {
+    let index = 0
+
+    const activeSlide = (n) => {
+      slides.forEach((slide) => slide.classList.remove('active'))
+      slides[n].classList.add('active')
+    }
+
+    const prepareCurrentSlide = () => {
+      activeSlide(index)
+    }
+
+    const nextSlide = () => {
+      index = index === slides.length - 1 ? 0 : index + 1
+      prepareCurrentSlide()
+    }
+
+    const prevSlide = () => {
+      index = index === 0 ? slides.length - 1 : index - 1
+      prepareCurrentSlide()
+    }
+
+    btnNext.addEventListener('click', nextSlide)
+    btnPrev.addEventListener('click', prevSlide)
+
+    btnNext.addEventListener('click', () => {
+      nextSlide()
+    })
+
+    btnPrev.addEventListener('click', () => {
+      prevSlide()
+    })
   } else {
-    index++
-    prepareCurrentSlide()
+    console.log('Slider elements not found on this page.')
   }
-}
-const prevSlide = () => {
-  if (index == 0) {
-    index = slides.length - 1
-    prepareCurrentSlide()
-  } else {
-    index--
-    prepareCurrentSlide()
-  }
-}
-btnNext.addEventListener('click', nextSlide)
-btnPrev.addEventListener('click', prevSlide)
+})

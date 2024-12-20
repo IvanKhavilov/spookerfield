@@ -14,7 +14,17 @@
     <div class="page">
       <header class="header">
         <div class="container">
-          <nav class="menu">
+          <div class="header__mob">
+            <a class="header__mob-logo" href="index.html">
+              <img src="images/logo.webp" width="75" height="75" loading="eager" alt="logo" />
+            </a>
+            <div class="burger-menu" id="burgerMenu">
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+            </div>
+          </div>
+          <nav class="menu" id="navMenu">
             <ul class="menu__list">
               <li class="menu__item"><a class="menu__link" href="#">Arcade</a></li>
               <li class="menu__item"><a class="menu__link" href="gallery.html">Gallery</a></li>
@@ -33,16 +43,16 @@
         <div class="container">
           <h2 class="title mb-70">Gallery</h2>
           <div class="gallery__slider mb-25">
-            <div class="button__prev">
-              <img src="images/slider-btn.webp" width="65" height="65" loading="lazy" alt="button prev" />
+            <div class="button__prev" id="button__prev">
+              <img class="button__icon" src="images/slider-btn.webp" width="65" height="65" loading="lazy" alt="button prev" />
             </div>
             <div class="slider__inner" id="slider__inner">
               <img class="slider__item active" src="images/slider-img-1.webp" loading="lazy" alt="" />
               <img class="slider__item" src="images/main-img-1.webp" loading="lazy" alt="" />
               <img class="slider__item" src="images/main-img-2.webp" loading="lazy" alt="" />
             </div>
-            <div class="button__next">
-              <img src="images/slider-btn.webp" width="65" height="65" loading="lazy" alt="button prev" />
+            <div class="button__next" id="button__next">
+              <img class="button__icon" src="images/slider-btn.webp" width="65" height="65" loading="lazy" alt="button next" />
             </div>
           </div>
           <p class="mb-25">
